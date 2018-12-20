@@ -106,7 +106,7 @@
 				</then>
 				<else>					<!-- Local Environment -->
 					<!-- <logger name="${LOG_PACKAGE_NAME}"  level="OFF"/> -->
-					<logger name="com.mbus"  level="INFO"/>
+					<logger name="com.mbus.controller"  level="INFO"/>
 					<root level="INFO">	
 			    		<appender-ref ref="console"/>
 						<appender-ref ref="FILE"/>
