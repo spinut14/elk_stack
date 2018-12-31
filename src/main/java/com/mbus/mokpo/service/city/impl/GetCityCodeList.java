@@ -9,16 +9,17 @@ import org.apache.commons.codec.binary.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.stereotype.Service;
 
 import com.mbus.mokpo.config.MbusConfig;
 import com.mbus.mokpo.config.MbusConfigInfo;
 import com.mbus.mokpo.controller.city.CityController;
 import com.mbus.mokpo.service.city.IGetCityCodeList;
 
-
+@Service
 public class GetCityCodeList implements IGetCityCodeList {
 
-	private final static Logger logger = LoggerFactory.getLogger(CityController.class);	
+	private final static Logger logger = LoggerFactory.getLogger(GetCityCodeList.class);	
 	public MbusConfigInfo config;	
 	@Override
 	public void getCityCodeList() {
