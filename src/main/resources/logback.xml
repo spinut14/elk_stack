@@ -133,6 +133,9 @@
 				<else>					<!-- Local Environment -->
 					<!-- <logger name="${LOG_PACKAGE_NAME}" level="OFF"/> -->
 					<logger name="com.mbus" level="INFO" />
+					<logger name="org.springframework" level="info" additivity="false"/>
+					
+					<!-- root 태그는 기본적으로 모든 로그를 어떤 레벨로 어떻게 처리할 것인가에 대한 설정 -->
 					<root level="INFO">
 						<appender-ref ref="console" />
 						<appender-ref ref="SIFT" />
