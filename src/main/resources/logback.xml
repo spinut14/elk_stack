@@ -10,8 +10,6 @@
 		value="${log.config.packagenam}" />
 	<!-- log file path -->
 	<property name="LOG_PATH" value="${log.config.path}" />
-	<!-- log file name -->
-	<property name="LOG_FILE_NAME" value="${log.config.filename}" />
 	<!-- log days -->
 	<property name="LOG_DAYS" value="${log.config.days}" />
 	<!-- log filesize log -->
@@ -29,7 +27,7 @@
 	<property name="LOG_FILE_MAX" value="${log.config.max}" />
 	<!-- logging pattern -->
 	<property name="LOG_PATTERN"
-		value="%-5level %d{yyyy-MM-dd HH:mm:ss}[%thread] %logger[%method:%line] - %msg%n" />
+		value="%-5level %d{yyyy-MM-dd HH:mm:ss} %logger[%method:%line] - %msg%n" />
 	<!-- [End] set property info -->
 
 	<!-- Console Appender -->
@@ -133,7 +131,7 @@
 				<else>					<!-- Local Environment -->
 					<!-- <logger name="${LOG_PACKAGE_NAME}" level="OFF"/> -->
 					<logger name="com.mbus" level="INFO" />
-					<logger name="org.springframework" level="info" additivity="false"/>
+					<logger name="org.springframework" level="INFO" additivity="false"/>
 					
 					<!-- root 태그는 기본적으로 모든 로그를 어떤 레벨로 어떻게 처리할 것인가에 대한 설정 -->
 					<root level="INFO">
