@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.mbus.mokpo.config.MbusConfig;
 import com.mbus.mokpo.config.MbusConfigInfo;
-import com.mbus.mokpo.controller.city.CityController;
 import com.mbus.mokpo.service.city.IGetCityCodeList;
 
 @Service
