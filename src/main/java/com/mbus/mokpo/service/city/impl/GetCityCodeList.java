@@ -31,16 +31,18 @@ public class GetCityCodeList implements IGetCityCodeList {
 		byte[] brrSvc = Base64.decodeBase64(config.getSvcKey());
 		String svcKey = new String(brrSvc);
 
-        if(logger.isInfoEnabled()) {
-			logger.info("[config] : ["+config+"]");
+		logger.info("[config] : ["+config+"]");
+        if(logger.isDebugEnabled()) {
+        	logger.debug("[config] : ["+config+"]");
 		}	
 		
         try {
         	
             String apiURL = "http://openapi.tago.go.kr/openapi/service/BusRouteInfoInqireService/getCtyCodeList";
             apiURL = apiURL + "?serviceKey="+svcKey+"&_type=json";
-            if(logger.isInfoEnabled()) {
-    			logger.info("[api URL] : ["+apiURL+"]");
+            logger.info("[api URL] : ["+apiURL+"]");
+            if(logger.isDebugEnabled()) {
+            	logger.debug("[api URL] : ["+apiURL+"]");
     		}
             URL url = new URL(apiURL);
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
@@ -60,7 +62,6 @@ public class GetCityCodeList implements IGetCityCodeList {
                 response.append(inputLine);
             }
             br.close();
-            System.out.println(response.toString());
         } catch (Exception e) {
             
         }

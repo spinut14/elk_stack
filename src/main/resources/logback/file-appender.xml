@@ -1,0 +1,26 @@
+<included>
+	<appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+			<key>trxPath</key>
+			<defaultValue>unknown</defaultValue>
+		</discriminator>
+
+		<sift>
+			<appender name="FILE-${trxPath}" class="ch.qos.logback.core.rolling.RollingFileAppender">
+				<file>${LOG_PATH}/LOG_${trxPath}.log</file>
+
+				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<fileNamePattern>${LOG_PATH}/LOG_%d{yyyy-MM-dd}_${trxPath}.log
+					</fileNamePattern>
+					<maxHistory>${LOG_DAYS}</maxHistory>
+					<totalSizeCap>${LOG_TOTAL_FILESIZE}</totalSizeCap>
+				</rollingPolicy>
+
+				<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+					<pattern>${LOG_PATTERN}</pattern>
+				</encoder>
+
+			</appender>
+		</sift>
+	</appender>
+</included>

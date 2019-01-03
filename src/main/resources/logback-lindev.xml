@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Log Level ALL : TRACE와 같음 나중에 확장을 위한것으로 보임. TRACE : TRACE, DEBUG, INFO, 
+		WARN , ERROR DEBUG : DEBUG, INFO , WARN, ERROR INFO : INFO , WARN , ERROR 
+		WARN : WARN , ERROR, ERROR : ERROR OFF : 출력하지 않음 -->
+
+<configuration scan="true" scanPeriod="30 seconds">
+	<!-- 30초마다 설정 파일의 변경을 확인한다. 파일이 변경되면 다시 로딩한다 -->
+
+	<!-- [Start] set property info -->
+	<property resource="logback.properties" />
+
+	<!-- log packagename -->
+	<property name="LOG_PACKAGE_NAME"
+		value="${log.config.packagenam}" />
+	<!-- log days -->
+	<property name="LOG_DAYS" value="${log.config.days}" />
+	<!-- log filesize log -->
+	<property name="LOG_FILESIZE_LOG"
+		value="${log.config.filesizelog}" />
+	<!-- log filesize zip -->
+	<property name="LOG_FILESIZE_ZIP"
+		value="${log.config.filesizezip}" />
+	<!-- log filesize total -->
+	<property name="LOG_TOTAL_FILESIZE"
+		value="${log.config.totalfilesize}" />
+	<!-- log min count -->
+	<property name="LOG_FILE_MIN" value="${log.config.min}" />
+	<!-- log max count -->
+	<property name="LOG_FILE_MAX" value="${log.config.max}" />
+	<!-- logging pattern -->
+	<property name="LOG_PATTERN" value="%-5level %d{yyyy-MM-dd HH:mm:ss} %logger[%method:%line] - %msg%n" />
+	
+	<!-- log file path -->
+	 
+	<springProfile name="winloc">
+		<property name="LOG_PATH" value="${log.config.win.loc.path}" />
+	</springProfile>
+	<springProfile name="linloc">
+		<property name="LOG_PATH" value="${log.config.lin.loc.path}" />
+	</springProfile>
+	<springProfile name="lindev">
+		<property name="LOG_PATH" value="${log.config.lin.dev.path}" />
+	</springProfile>
+	
+	
+	<!-- [End] set property info -->
+	
+	<!-- Include resource -->
+	<include resource="logback/console-appender.xml" />
+	<include resource="logback/file-appender.xml" />
+	
+
+	<!-- [Start] Appender 지정 Product / Develop / Local -->
+	<logger name="com.mbus" level="DEBUG" />
+	<logger name="org.springframework" level="INFO" additivity="false"/>
+	
+	<!-- root 태그는 기본적으로 모든 로그를 어떤 레벨로 어떻게 처리할 것인가에 대한 설정 -->
+	<root level="DEBUG">
+		<appender-ref ref="console" />
+		<appender-ref ref="SIFT" />
+	</root>
+
+	<!-- [End] Appender 지정 Product / Develop / Local -->
+
+
+</configuration>
