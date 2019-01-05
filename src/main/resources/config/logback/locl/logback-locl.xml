@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Log Level ALL : TRACE와 같음 나중에 확장을 위한것으로 보임. TRACE : TRACE, DEBUG, INFO, 
+		WARN , ERROR DEBUG : DEBUG, INFO , WARN, ERROR INFO : INFO , WARN , ERROR 
+		WARN : WARN , ERROR, ERROR : ERROR OFF : 출력하지 않음 -->
+
+<configuration scan="true" scanPeriod="30 seconds">
+	<!-- 30초마다 설정 파일의 변경을 확인한다. 파일이 변경되면 다시 로딩한다 -->
+
+	<!-- [Start] set property info -->
+	<property resource="config/logback/common/logback.properties" />
+	<!-- log file path -->
+	<property name="LOG_PATH" value="${log.config.lin.loc.path}" />
+	<!-- [End] set property info -->
+	
+	<!-- [Start] Include resource -->
+	<include resource="config/logback/common/logback-base.xml" />
+	<include resource="config/logback/common/appender/console-appender.xml" />
+	<include resource="config/logback/common/appender/sift-appender.xml" />
+	<include resource="config/logback/common/appender/file-appender.xml" />
+	<!-- [End] Include resource -->
+
+	<!-- [Start] Appender 지정 Product / Develop / Local -->
+	<logger name="com.mbus" level="INFO" />
+	<logger name="org.springframework" level="INFO" additivity="false"/>
+	
+	<!-- root 태그는 기본적으로 모든 로그를 어떤 레벨로 어떻게 처리할 것인가에 대한 설정 -->
+	<root level="ALL">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="FILE" />	
+		<appender-ref ref="SIFT" />
+	</root>
+
+	<!-- [End] Appender 지정 Product / Develop / Local -->
+
+
+</configuration>

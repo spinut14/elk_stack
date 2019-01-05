@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+	<!-- [Start] set property info -->
+	<property resource="logback.properties" />
+
+	<!-- log packagename -->
+	<property name="LOG_PACKAGE_NAME" value="${log.config.packagename}" />
+	<!-- log days -->
+	<property name="LOG_DAYS" value="${log.config.days}" />
+	<!-- log filesize log -->
+	<property name="LOG_FILESIZE_LOG"
+		value="${log.config.filesizelog}" />
+	<!-- log filesize zip -->
+	<property name="LOG_FILESIZE_ZIP"
+		value="${log.config.filesizezip}" />
+	<!-- log filesize total -->
+	<property name="LOG_TOTAL_FILESIZE"
+		value="${log.config.totalfilesize}" />
+	<!-- log min count -->
+	<property name="LOG_FILE_MIN" value="${log.config.min}" />
+	<!-- log max count -->
+	<property name="LOG_FILE_MAX" value="${log.config.max}" />
+	<!-- logging pattern -->
+	<property name="LOG_PATTERN" value="%-5level%d{yyyy-MM-dd HH:mm:ss} %logger[%method:%line] - %msg%n" />
+</included>
