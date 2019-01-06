@@ -14,9 +14,9 @@
 	
 	<!-- [Start] Include resource -->
 	<include resource="config/logback/common/logback-base.xml" />
-	<include resource="config/logback/common/console-appender.xml" />
-	<include resource="config/logback/common/sift-appender.xml" />
-	<include resource="config/logback/common/file-appender.xml" />
+	<include resource="config/logback/common/appender/console-appender.xml" />
+	<include resource="config/logback/common/appender/sift-appender.xml" />
+	<include resource="config/logback/common/appender/file-appender.xml" />
 	<!-- [End] Include resource -->
 	
 
